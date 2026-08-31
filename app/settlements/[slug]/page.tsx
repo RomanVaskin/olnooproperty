@@ -7,7 +7,8 @@ import { SiteFooter } from '@/components/site-footer'
 import { ListingCard } from '@/components/listing-card'
 import { LeadForm } from '@/components/lead-form'
 import { SerifAmount } from '@/components/dashboard/widgets'
-import { settlements, houses, plots } from '@/lib/data'
+import { SettlementDetailView } from '@/components/settlement-detail'
+import { settlements, houses, plots, settlementDetails } from '@/lib/data'
 
 const gallery = [
   '/images/settlement-maloe-isakovo.png',
@@ -33,6 +34,11 @@ export default async function SettlementPage({
   const { slug } = await params
   const settlement = settlements.find((s) => s.slug === slug)
   if (!settlement) notFound()
+
+  const detail = settlementDetails[slug]
+  if (detail) {
+    return <SettlementDetailView settlement={settlement} detail={detail} />
+  }
 
   const facts = [
     { icon: TreePine, label: 'Тип', value: settlement.type },

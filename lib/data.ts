@@ -16,15 +16,15 @@ export const settlements: Settlement[] = [
   {
     slug: 'maloe-isakovo',
     name: 'Малое Исаково',
-    type: 'Коттеджный посёлок',
-    format: 'Дома и участки',
-    priceFrom: 'от 12 млн ₽',
-    distance: '35 км от города',
-    location: 'Калининградская область',
-    image: '/images/settlement-maloe-isakovo.png',
-    tag: 'Премиум',
-    houses: 24,
-    plots: 38,
+    type: 'Клубный посёлок',
+    format: 'Резиденции комфорт-класса',
+    priceFrom: 'от 19 млн ₽',
+    distance: '45 минут от Москвы',
+    location: 'Истринское водохранилище',
+    image: '/images/mi-hero.png',
+    tag: 'Флагман',
+    houses: 30,
+    plots: 0,
   },
   {
     slug: 'sosnovy-bereg',
@@ -141,6 +141,170 @@ export const plots: Listing[] = [
     specs: ['ИЖС', 'Лес рядом', 'Дорога круглый год'],
   },
 ]
+
+export type HouseModel = {
+  name: string
+  tagline: string
+  area: string
+  price: string
+  image: string
+  highlights: string[]
+}
+
+export type SettlementDetail = {
+  slug: string
+  positioning: string
+  locationFull: string
+  travelTime: string
+  scale: string
+  intro: string[]
+  gallery: string[]
+  masterplan: {
+    image: string
+    zones: { label: string; note: string }[]
+  }
+  benefits: string[]
+  infrastructure: { title: string; note: string }[]
+  models: HouseModel[]
+  configurations: { name: string; note: string }[]
+  includedFeatures: string[]
+  facadeOptions: { name: string; note: string; image: string }[]
+  purchaseOptions: string[]
+  developer: {
+    name: string
+    initials: string
+    note: string
+  }
+}
+
+export const settlementDetails: Record<string, SettlementDetail> = {
+  'maloe-isakovo': {
+    slug: 'maloe-isakovo',
+    positioning: 'Доступные резиденции комфорт-класса на Истринском водохранилище.',
+    locationFull: 'Московская область, Солнечногорский район, село Исаково',
+    travelTime: '45 минут от Москвы',
+    scale: 'Более 30 резиденций',
+    intro: [
+      'Малое Исаково — клубный посёлок современной архитектуры эко-минимализма, расположенный в глубине лесного массива на берегу Истринского водохранилища. Это среда абсолютной приватности, тишины и гармонии с природой.',
+      'Каждая резиденция спроектирована как самодостаточный дом для круглогодичной жизни: панорамное остекление, продуманные планировки и качественные фасадные решения. Единая клубная концепция объединяет соседей общим уровнем комфорта.',
+    ],
+    gallery: [
+      '/images/mi-hero.png',
+      '/images/nature-lake.png',
+      '/images/interior.png',
+      '/images/road-entrance.png',
+    ],
+    masterplan: {
+      image: '/images/mi-masterplan.png',
+      zones: [
+        { label: 'Первая очередь', note: 'Резиденции у входной группы' },
+        { label: 'Вторая очередь', note: 'Кварталы в глубине леса' },
+        { label: 'Третья очередь', note: 'Приватные участки у воды' },
+        { label: 'Досугово-развлекательный центр', note: 'Клубное сердце посёлка' },
+        { label: 'Ландшафтный парк', note: 'Прогулочные маршруты и зоны отдыха' },
+      ],
+    },
+    benefits: [
+      'Абсолютная приватность',
+      'Расположение в глубине лесного массива',
+      'Тишина вдали от трасс',
+      'Современная архитектура эко-минимализма',
+      'Гармония с природой',
+      'Комфортная клубная среда',
+    ],
+    infrastructure: [
+      { title: 'Клубный комплекс', note: 'Центр общественной жизни посёлка' },
+      { title: 'Авторский кафетерий', note: 'Завтраки и ужины рядом с домом' },
+      { title: 'Фитнес', note: 'Тренировки без выезда в город' },
+      { title: 'Детский клуб', note: 'Развитие и досуг для детей' },
+      { title: 'Спортивный клуб', note: 'Секции и активный отдых' },
+      { title: 'Образовательные программы', note: 'Занятия для всей семьи' },
+    ],
+    models: [
+      {
+        name: 'Ницца',
+        tagline: 'Элегантная функциональность',
+        area: '145 м²',
+        price: 'от 19 млн ₽',
+        image: '/images/mi-nice.png',
+        highlights: [
+          'Кухня-гостиная 30.8 м²',
+          'Открытая терраса 13.7 м²',
+          'Оптимальная планировка для семьи',
+        ],
+      },
+      {
+        name: 'Прованс',
+        tagline: 'Атмосфера света',
+        area: '192 м²',
+        price: 'от 23 млн ₽',
+        image: '/images/mi-provence.png',
+        highlights: [
+          'Кухня-гостиная 42 м²',
+          'Панорамные виды',
+          'Приватная мастер-спальня',
+        ],
+      },
+      {
+        name: 'Милан',
+        tagline: 'Безупречный статус',
+        area: '240 м²',
+        price: 'от 34 млн ₽',
+        image: '/images/mi-milan.png',
+        highlights: [
+          'Раздельные кухня-столовая и гостиная',
+          'Гранд-терраса 33 м²',
+          'Пространство для масштабных приёмов',
+        ],
+      },
+    ],
+    configurations: [
+      {
+        name: 'Тёплый контур',
+        note: 'Готовый утеплённый дом с фасадом, окнами и подведёнными коммуникациями — можно приступать к отделке.',
+      },
+      {
+        name: 'Серый ключ',
+        note: 'Расширенная готовность с инженерными системами внутри — минимальный шаг до чистовой отделки.',
+      },
+    ],
+    includedFeatures: [
+      'Панорамные энергоэффективные окна',
+      'Отделка фасада',
+      'Ограждение участка',
+      'Входная дверь',
+      'Инженерные коммуникации',
+      'Электричество',
+      'Вода и канализация',
+      'Отопление',
+      'Интернет',
+      'Благоустройство территории',
+    ],
+    facadeOptions: [
+      {
+        name: 'Облицовочный керамический кирпич',
+        note: 'Классическая долговечная фактура с тёплым природным оттенком.',
+        image: '/images/mi-facade-brick.png',
+      },
+      {
+        name: 'Гибкая керамика Phomi',
+        note: 'Современный лёгкий материал с натуральным каменным рисунком.',
+        image: '/images/mi-facade-phomi.png',
+      },
+    ],
+    purchaseOptions: [
+      '100% оплата',
+      'Индивидуальная скидка',
+      'Беспроцентная рассрочка до 6 месяцев',
+      'Ипотека',
+    ],
+    developer: {
+      name: 'Истра Строй Сервис',
+      initials: 'ИС',
+      note: 'Девелопер клубного посёлка Малое Исаково. Собственное производство и строительный контроль на каждом этапе.',
+    },
+  },
+}
 
 export const crmStages = [
   'Новый лид',
