@@ -6,6 +6,7 @@ import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { ListingCard } from '@/components/listing-card'
 import { LeadForm } from '@/components/lead-form'
+import { SerifAmount } from '@/components/dashboard/widgets'
 import { settlements, houses, plots } from '@/lib/data'
 
 const gallery = [
@@ -178,7 +179,9 @@ export default async function SettlementPage({
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-lg border border-border bg-card p-6">
               <p className="text-sm text-muted-foreground">Стоимость</p>
-              <p className="mt-1 font-serif text-3xl">{settlement.priceFrom}</p>
+                <p className="mt-1 font-serif text-3xl">
+                  <SerifAmount>{settlement.priceFrom}</SerifAmount>
+                </p>
               <p className="mt-1 text-sm text-muted-foreground">
                 {settlement.houses} домов · {settlement.plots} участков
               </p>

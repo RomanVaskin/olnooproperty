@@ -1,3 +1,5 @@
+'use client'
+
 import {
   LayoutGrid,
   Building2,
@@ -13,7 +15,7 @@ import {
   TrendingUp,
 } from 'lucide-react'
 import { DashboardShell, PageTitle } from '@/components/dashboard/shell'
-import { StatCard, Panel, BarChart, ProgressRow } from '@/components/dashboard/widgets'
+import { StatCard, Panel, BarChart, ProgressRow, SerifAmount } from '@/components/dashboard/widgets'
 import { settlements } from '@/lib/data'
 
 const nav = [
@@ -120,7 +122,9 @@ export default function AdminCabinet() {
               {tariffs.map((t) => (
                 <div key={t.name} className="rounded-md border border-border p-4">
                   <p className="text-sm font-medium">{t.name}</p>
-                  <p className="mt-1 font-serif text-xl">{t.price}</p>
+                    <p className="mt-1 font-serif text-xl">
+                      <SerifAmount>{t.price}</SerifAmount>
+                    </p>
                   <p className="mt-1 text-xs text-muted-foreground">{t.desc}</p>
                   <p className="mt-3 border-t border-border pt-3 text-xs text-muted-foreground">
                     {t.users} аккаунтов

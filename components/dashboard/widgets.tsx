@@ -1,6 +1,24 @@
 import type { LucideIcon } from 'lucide-react'
 import { ArrowUpRight, ArrowDownRight } from 'lucide-react'
 
+/**
+ * Renders text where the ₽ sign is drawn with the sans font, because the
+ * Playfair serif face has no ruble glyph and would otherwise show tofu.
+ */
+export function SerifAmount({ children }: { children: string }) {
+  const parts = children.split('₽')
+  return (
+    <>
+      {parts.map((part, i) => (
+        <span key={i}>
+          {part}
+          {i < parts.length - 1 && <span className="font-sans">₽</span>}
+        </span>
+      ))}
+    </>
+  )
+}
+
 export function StatCard({
   label,
   value,
@@ -20,7 +38,9 @@ export function StatCard({
         <p className="text-sm text-muted-foreground">{label}</p>
         {Icon && <Icon className="h-4 w-4 text-muted-foreground" />}
       </div>
-      <p className="mt-3 font-serif text-3xl">{value}</p>
+      <p className="mt-3 font-serif text-3xl">
+        <SerifAmount>{value}</SerifAmount>
+      </p>
       {delta && (
         <p
           className={`mt-2 inline-flex items-center gap-1 text-xs ${
