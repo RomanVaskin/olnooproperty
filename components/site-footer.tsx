@@ -69,6 +69,7 @@ export function SiteFooter() {
         <div className="mt-14 flex flex-col gap-3 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} OLNOO Property. Все права защищены.</p>
           <p>Загородная недвижимость проще.</p>
+          <p>OLNOO Property — test Claude Web</p>
         </div>
       </div>
     </footer>
