@@ -63,14 +63,16 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative">
         <div className="relative h-[82vh] min-h-[560px] w-full overflow-hidden">
-          <Image
-            src="/images/hero-estate.png"
-            alt="Загородный коттеджный посёлок у озера"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/images/hero-estate.png"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/video/hero-property.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/30" />
           <div className="absolute inset-0 flex items-end">
             <div className="mx-auto w-full max-w-7xl px-5 pb-14 lg:px-8 lg:pb-20">
