@@ -10,12 +10,22 @@ import { SerifAmount } from '@/components/dashboard/widgets'
 import { SettlementDetailView } from '@/components/settlement-detail'
 import { settlements, houses, plots, settlementDetails } from '@/lib/data'
 
-const gallery = [
+const defaultGallery = [
   '/images/settlement-maloe-isakovo.png',
   '/images/road-entrance.png',
   '/images/nature-lake.png',
   '/images/interior.png',
 ]
+
+const galleryBySlug: Record<string, string[]> = {
+  'sosnovy-bereg': [
+    '/IMG_5781.jpeg',
+    '/IMG_5782.jpeg',
+    '/IMG_5783.jpeg',
+    '/IMG_5784.jpeg',
+    '/IMG_5785.jpeg',
+  ],
+}
 
 const benefits = [
   'Огороженная территория и охрана 24/7',
@@ -34,6 +44,8 @@ export default async function SettlementPage({
   const { slug } = await params
   const settlement = settlements.find((s) => s.slug === slug)
   if (!settlement) notFound()
+
+  const gallery = galleryBySlug[slug] ?? defaultGallery
 
   const detail = settlementDetails[slug]
   if (detail) {
